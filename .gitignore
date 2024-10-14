@@ -29,3 +29,11 @@ StationeryManagementSystem/obj/Debug/DesignTimeResolveAssemblyReferences.cache
 /StationeryManagementSystem/bin
 /StationeryManagementSystem/obj
 /StationeryManagementSystem/obj/Debug
+
+.vs
+/.vs
+UpgradeLog.htm
+/StationeryManagementSystem/bin
+/StationeryManagementSystem/obj
+*.cache
+
