@@ -1,7 +1,9 @@
-﻿using System;
+﻿using StationeryManagementSystem.DAO;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -48,8 +50,40 @@ namespace StationeryManagementSystem
         private void btnLogin_Click(object sender, EventArgs e)
         {
             Form f = new FormMain();
-            f.Show();
-            this.Hide();
+            if (txtUserName.Text == "admin" && txtPassword.Text == "123")
+            {
+                MyDB.ConnString = MyDB.ConnAdmin;
+                this.DialogResult = DialogResult.OK;
+            }
+            else
+            {
+                if (KiemTraDangNhap(txtUserName.Text, txtPassword.Text))
+                {
+                    MyDB.ConnString = @"Data Source=TuoiTho\SQLEXPRESS;Initial Catalog=StationeryManagementSystem;User ID=" + txtUserName.Text + ";Password=" + txtPassword.Text + ";Connect Timeout=30;Encrypt=True;TrustServerCertificate=True";
+                    this.DialogResult = DialogResult.OK;
+                }
+                else
+                {
+                    MessageBox.Show("Sai tên đăng nhập hoặc mật khẩu", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
         }
+        private bool KiemTraDangNhap(string taiKhoan, string matKhau)
+        {
+            string query = "select count(*) from Account where Username = '" + taiKhoan + "' and Password = '" + matKhau + "' ";
+            MyDB.ConnString=MyDB.ConnAdmin;
+            SqlCommand cmd = new SqlCommand(query, MyDB.GetConnection);
+            MyDB.OpenConnection();
+            if ((int)cmd.ExecuteScalar() > 0)
+            {
+                MyDB.CloseConnection();
+                MyDB.Conn = null;
+                return true;
+            }
+            MyDB.CloseConnection();
+            return false;
+
+        }
+
     }
 }

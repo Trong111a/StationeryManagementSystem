@@ -26,7 +26,14 @@ namespace StationeryManagementSystem.GUI
 
         private void FormChiTietLuong_Load(object sender, EventArgs e)
         {
-            gvLuong.DataSource = LuongDAO.LuongTrongThang(thang, nam);
+            try
+            {
+                gvLuong.DataSource = LuongDAO.LuongTrongThang(thang, nam);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi tải dữ liệu: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

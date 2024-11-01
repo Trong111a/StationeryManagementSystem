@@ -44,19 +44,26 @@ namespace StationeryManagementSystem.GUI
 
         private void btnTaoLap_Click(object sender, EventArgs e)
         {
-            int maNcc = int.Parse(cbMaNCC.SelectedValue.ToString());
-            int maNV = int.Parse(cbMaNV.SelectedValue.ToString());
             try
             {
-                HoaDonNhapDAO.insert(maNV, maNcc);
-                MessageBox.Show("Thêm thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                gvHD.DataSource = HoaDonNhapDAO.findAll();
-                btnReload_Click(sender, e);
+                int maNcc = int.Parse(cbMaNCC.SelectedValue.ToString());
+                int maNV = int.Parse(cbMaNV.SelectedValue.ToString());
+                try
+                {
+                    HoaDonNhapDAO.insert(maNV, maNcc);
+                    MessageBox.Show("Thêm thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    gvHD.DataSource = HoaDonNhapDAO.findAll();
+                    btnReload_Click(sender, e);
 
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                MessageBox.Show(ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Chọn nhà cung cấp và nhân viên", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

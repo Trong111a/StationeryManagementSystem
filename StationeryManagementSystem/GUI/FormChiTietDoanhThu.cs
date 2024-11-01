@@ -24,7 +24,14 @@ namespace StationeryManagementSystem.GUI
 
         private void FormChiTietDoanhThu_Load(object sender, EventArgs e)
         {
-            gvDoanhThu.DataSource = HoaDonBanDAO.DoanhThuTrongThang(thang, nam);
+            try
+            {
+                gvDoanhThu.DataSource = HoaDonBanDAO.DoanhThuTrongThang(thang, nam);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi tải dữ liệu: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

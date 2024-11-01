@@ -15,6 +15,7 @@ namespace StationeryManagementSystem
         public FormMain()
         {
             InitializeComponent();
+            
         }
 
 
