@@ -81,6 +81,8 @@ namespace StationeryManagementSystem.GUI
                 cmd.Parameters.AddWithValue("@manv", SqlDbType.Int).Value = manv;
                 cmd.Parameters.AddWithValue("@maca", SqlDbType.Int).Value = maca;
                 cmd.Parameters.AddWithValue("@ngay", SqlDbType.Date).Value = ngay;
+                // ko lay giay
+                moctime = moctime.AddSeconds(-moctime.Second);
                 cmd.Parameters.AddWithValue("@moctime", SqlDbType.Time).Value = moctime;
                 cmd.ExecuteNonQuery();
                 MyDB.CloseConnection();

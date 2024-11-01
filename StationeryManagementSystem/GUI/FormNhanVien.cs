@@ -125,30 +125,25 @@ namespace StationeryManagementSystem
 
         private void btnXoa_Click(object sender, EventArgs e)
         {
-            if (gvNhanVien.SelectedRows.Count <= 0)
-            {
-                MessageBox.Show("Vui lòng chọn một dòng dữ liệu nhân viên để xóa.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-            else
-            {
-                var selectedRow = gvNhanVien.SelectedRows[0];
-                if (selectedRow.IsNewRow || string.IsNullOrWhiteSpace(selectedRow.Cells["maNV"].Value?.ToString()))
-                {
-                    MessageBox.Show("Dòng được chọn không hợp lệ. Vui lòng chọn dòng dữ liệu hợp lệ để xóa.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return;
-                }
 
-                int maNV = int.Parse(txtMaNV.Text);
-                try
-                {
-                    CommonDAO.deleteRecord("NhanVien", "MaNhanVien", maNV); ;
-                    MessageBox.Show("Xóa thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+            var selectedRow = gvNhanVien.SelectedRows[0];
+            if (selectedRow.IsNewRow || string.IsNullOrWhiteSpace(selectedRow.Cells["maNV"].Value?.ToString()))
+            {
+                MessageBox.Show("Dòng được chọn không hợp lệ. Vui lòng chọn dòng dữ liệu hợp lệ để xóa.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
             }
+
+            int maNV = int.Parse(txtMaNV.Text);
+            try
+            {
+                CommonDAO.deleteRecord("NhanVien", "MaNhanVien", maNV); ;
+                MessageBox.Show("Xóa thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
         }
 
         private void gvNhanVien_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -236,6 +231,11 @@ namespace StationeryManagementSystem
 
             gvNhanVien.DataSource = dt;*/
             gvNhanVien.DataSource = CommonDAO.search("NhanVien", txtSearch.Text);
+        }
+
+        private void gvNhanVien_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

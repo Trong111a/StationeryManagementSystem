@@ -669,6 +669,7 @@
             this.gvNhanVien.Size = new System.Drawing.Size(973, 122);
             this.gvNhanVien.TabIndex = 2;
             this.gvNhanVien.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gvNhanVien_CellClick);
+            this.gvNhanVien.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gvNhanVien_CellContentClick);
             // 
             // maNV
             // 

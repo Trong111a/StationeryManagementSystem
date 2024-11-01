@@ -277,5 +277,10 @@ namespace StationeryManagementSystem.GUI
                 MessageBox.Show(ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void gvSP_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }
