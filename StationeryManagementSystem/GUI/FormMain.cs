@@ -4,7 +4,7 @@ using System;
 using System.Drawing;
 using System.Security.AccessControl;
 using System.Windows.Forms;
-
+using StationeryManagementSystem.DAO;
 namespace StationeryManagementSystem
 {
     public partial class FormMain : Form
@@ -12,9 +12,14 @@ namespace StationeryManagementSystem
         private Form activeForm;
         private Button currentButton;
 
-        public FormMain()
+        public FormMain(string role)
         {
             InitializeComponent();
+            if (role !=null && role!="Admin")
+            {
+                roundedButton_qldt.Enabled = false;
+            }
+            
         }
 
 

@@ -1,9 +1,12 @@
-﻿using System;
+﻿using StationeryManagementSystem.DAO;
+using StationeryManagementSystem.GUI;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -12,6 +15,7 @@ namespace StationeryManagementSystem
 {
     public partial class FormDangNhap : Form
     {
+        
         public FormDangNhap()
         {
             InitializeComponent();
@@ -47,7 +51,15 @@ namespace StationeryManagementSystem
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            Form f = new FormMain();
+            
+            string username = txtUserName.Text;
+            string password = txtPassword.Text;
+            string role  =  AuthenticationDAO.myAuthenticateUser(username, password);
+            if (role == "Invalid credentials") {
+                MessageBox.Show("Username or password is not correct", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            Form f = new FormMain(role);
             f.Show();
             this.Hide();
         }

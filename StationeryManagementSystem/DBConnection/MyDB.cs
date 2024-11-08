@@ -9,7 +9,7 @@ namespace StationeryManagementSystem.DAO
 {
     public class MyDB
     {
-        static SqlConnection conn = new SqlConnection(@"Server=localhost,1433;Database=a9;User Id=sa;Password=123456;");
+        static SqlConnection conn = new SqlConnection(@"Data Source=DESKTOP-09KCOMQ\SQLEXPRESS;Initial Catalog=StationeryManagementSystem;Integrated Security=True;");
 
         //static SqlConnection conn = new SqlConnection(@"Data Source= ;Initial Catalog=QuanLyVanPhongPham;Integrated Security=True;Connect Timeout=30;Encrypt=True;TrustServerCertificate=True");
 
