@@ -4,7 +4,7 @@ using System;
 using System.Drawing;
 using System.Security.AccessControl;
 using System.Windows.Forms;
-using StationeryManagementSystem.DAO;
+
 namespace StationeryManagementSystem
 {
     public partial class FormMain : Form
@@ -12,13 +12,9 @@ namespace StationeryManagementSystem
         private Form activeForm;
         private Button currentButton;
 
-        public FormMain(string role)
+        public FormMain()
         {
             InitializeComponent();
-            if (role !=null && role!="Admin")
-            {
-                roundedButton_qldt.Enabled = false;
-            }
             
         }
 
@@ -98,8 +94,6 @@ namespace StationeryManagementSystem
                 button.Image = Image.FromFile(imagePath + (isActive ? "khachhang_trang.png" : "khachhang.png"));
             else if (button.Name == "roundedButton_thoat")
                 button.Image = Image.FromFile(imagePath + (isActive ? "thoat_trang.png" : "thoat.png"));
-            else if (button.Name == "roundedButton_TrashCan")
-                button.Image = Image.FromFile(imagePath + (isActive ? "thungrac_trang.png" : "thungrac.png"));
         }
 
 
@@ -107,6 +101,7 @@ namespace StationeryManagementSystem
 
         private void roundedButton_qltk_Click(object sender, EventArgs e)
         {
+            this.panel_childForm.BackgroundImage = null;
             FormTaiKhoan formTaiKhoan = new FormTaiKhoan();
             OpenChildForm(formTaiKhoan, sender);
             lblTiltle.Text = "Quản lý tài khoản";
@@ -114,7 +109,7 @@ namespace StationeryManagementSystem
 
         private void roundedButton_qlnv_Click(object sender, EventArgs e)
         {
-     
+            this.panel_childForm.BackgroundImage = null;
             FormNhanVien formNhanVien = new FormNhanVien();
             OpenChildForm(formNhanVien, sender);
             lblTiltle.Text = "Quản lý nhân viên";
@@ -122,6 +117,7 @@ namespace StationeryManagementSystem
 
         private void roundedButton_lv_Click(object sender, EventArgs e)
         {
+            this.panel_childForm.BackgroundImage = null;
             FormLichLamViec formLichLamViec = new FormLichLamViec();
             OpenChildForm(formLichLamViec, sender);
             lblTiltle.Text = "Quản lý lịch làm việc";
@@ -129,6 +125,7 @@ namespace StationeryManagementSystem
 
         private void roundedButton_qlsp_Click(object sender, EventArgs e)
         {
+            this.panel_childForm.BackgroundImage = null;
             FormSanPham formSanPham = new FormSanPham();
             OpenChildForm(formSanPham, sender);
             lblTiltle.Text = "Quản lý sản phẩm";
@@ -136,6 +133,7 @@ namespace StationeryManagementSystem
 
         private void roundedButton_hdb_Click(object sender, EventArgs e)
         {
+            this.panel_childForm.BackgroundImage = null;
             FormHoaDonBan formHoaDonBan = new FormHoaDonBan();
             OpenChildForm(formHoaDonBan, sender);
             lblTiltle.Text = "Quản lý hóa đơn bán";
@@ -143,6 +141,7 @@ namespace StationeryManagementSystem
 
         private void roundedButton_hdn_Click(object sender, EventArgs e)
         {
+            this.panel_childForm.BackgroundImage = null;
             FormHoaDonNhap formHoaDonNhap = new FormHoaDonNhap();
             OpenChildForm(formHoaDonNhap, sender);
             lblTiltle.Text = "Quản lý hóa đơn nhập";
@@ -150,6 +149,7 @@ namespace StationeryManagementSystem
 
         private void roundedButton_ncc_Click(object sender, EventArgs e)
         {
+            this.panel_childForm.BackgroundImage = null;
             FormNhaCungCap formNhaCungCap = new FormNhaCungCap();
             OpenChildForm(formNhaCungCap, sender);
             lblTiltle.Text = "Quản lý nhà cung cấp";
@@ -157,6 +157,7 @@ namespace StationeryManagementSystem
 
         private void roundedButton_qlkh_Click(object sender, EventArgs e)
         {
+            this.panel_childForm.BackgroundImage = null;
             FormKhachHang formKhachHang = new FormKhachHang();
             OpenChildForm(formKhachHang, sender);
             lblTiltle.Text = "Khách hàng";
@@ -164,6 +165,7 @@ namespace StationeryManagementSystem
 
         private void roundedButton_qldt_Click(object sender, EventArgs e)
         {
+            this.panel_childForm.BackgroundImage = null;
             FormDoanhThu formDoanhThu = new FormDoanhThu();
             OpenChildForm(formDoanhThu, sender);
             lblTiltle.Text = "Thống kê";
@@ -171,19 +173,12 @@ namespace StationeryManagementSystem
 
         private void roundedButton_thoat_Click(object sender, EventArgs e)
         {
+            this.panel_childForm.BackgroundImage = null;
             ActivateButton(sender);
             Application.Exit();
         }
 
-        
-        private void roundedButton_TrashCan_Click(object sender, EventArgs e)
-        {
-            FormThungRac formThungRac = new FormThungRac();
-            OpenChildForm(formThungRac, sender);
-            lblTiltle.Text = "Thùng rác";
-        }
-
-        private void roundedButton_menu_Click(object sender, EventArgs e)
+        private void roundedButton6_Click(object sender, EventArgs e)
         {
             if (!isCollapsed)
             {
@@ -193,7 +188,7 @@ namespace StationeryManagementSystem
                 {
                     if (bt is RoundedButton)
                     {
-                        bt.Text = "";
+                        bt.Text = ""; 
                     }
                 }
 

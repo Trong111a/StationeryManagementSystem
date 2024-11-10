@@ -20,7 +20,14 @@ namespace StationeryManagementSystem.GUI
 
         private void FormNhaCungCap_Load(object sender, EventArgs e)
         {
-            gvNhaCungCap.DataSource = NhaCungCapDAO.findAll();
+            try
+            {
+                gvNhaCungCap.DataSource = NhaCungCapDAO.findAll();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Bạn không có quyền truy cập vào các tính năng" + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void btnThem_Click(object sender, EventArgs e)
@@ -50,7 +57,14 @@ namespace StationeryManagementSystem.GUI
             txtHoTen.Clear();
             txtDiaChi.Clear();
             txtSDT.Clear();
-            gvNhaCungCap.DataSource = NhaCungCapDAO.findAll();
+            try
+            {
+                gvNhaCungCap.DataSource = NhaCungCapDAO.findAll();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Bạn không có quyền truy cập vào các tính năng" + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void btnSua_Click(object sender, EventArgs e)
@@ -128,28 +142,6 @@ namespace StationeryManagementSystem.GUI
 
         private void txtSearh_TextChanged(object sender, EventArgs e)
         {
-            /*if (txtSearh.Text == "")
-            {
-                gvNhaCungCap.DataSource = NhaCungCapDAO.findAll();
-                return;
-            }
-            string input = txtSearh.Text;
-            int maSP;
-            DataTable dt = (DataTable)gvNhaCungCap.DataSource;
-            bool isNumber = int.TryParse(input, out maSP);  // Chuyển đổi chuỗi thành số (nếu có thể)
-
-            if (isNumber)
-            {
-                // Nếu input là số, sử dụng bộ lọc cho Mã SP là số và các cột khác là chuỗi
-                dt.DefaultView.RowFilter = "[Mã NCC] = " + maSP + "";
-            }
-            else
-            {
-                // Nếu input không phải là số, chỉ áp dụng bộ lọc cho các cột chuỗi
-                dt.DefaultView.RowFilter = "[Tên NCC] LIKE '%" + input + "%'";
-            }
-
-            gvNhaCungCap.DataSource = dt;*/
             gvNhaCungCap.DataSource = CommonDAO.search("NhaCungCap", txtSearh.Text);
         }
     }

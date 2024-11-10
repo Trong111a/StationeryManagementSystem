@@ -1,4 +1,5 @@
 ﻿using StationeryManagementSystem;
+using StationeryManagementSystem.GUI;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,8 +18,11 @@ namespace StationeryManagementSystem
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            //Application.Run(new FormDangNhap());
-            Application.Run(new FormDangNhap());
+            FormDangNhap formDangNhap = new FormDangNhap();
+            if (formDangNhap.ShowDialog() == DialogResult.OK)
+            {
+                Application.Run(new FormMain());
+            }
         }
     }
 }

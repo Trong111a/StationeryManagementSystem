@@ -20,13 +20,27 @@ namespace StationeryManagementSystem
 
         private void FormNhanVien_Load(object sender, EventArgs e)
         {
-            gvNhanVien.DataSource = NhanVienDAO.findAll();
+            try
+            {
+                gvNhanVien.DataSource = NhanVienDAO.findAll();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Bạn không có quyền truy cập vào các tính năng" + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void btnReLoad_Click(object sender, EventArgs e)
         {
             LamTrongField();
-            gvNhanVien.DataSource = NhanVienDAO.findAll();
+            try
+            {
+                gvNhanVien.DataSource = NhanVienDAO.findAll();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Bạn không có quyền truy cập vào các tính năng" + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void btnSua_Click(object sender, EventArgs e)

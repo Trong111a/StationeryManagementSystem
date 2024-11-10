@@ -1,12 +1,11 @@
 ﻿using StationeryManagementSystem.DAO;
-using StationeryManagementSystem.GUI;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
-using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -15,7 +14,6 @@ namespace StationeryManagementSystem
 {
     public partial class FormDangNhap : Form
     {
-        
         public FormDangNhap()
         {
             InitializeComponent();
@@ -51,17 +49,41 @@ namespace StationeryManagementSystem
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            
-            string username = txtUserName.Text;
-            string password = txtPassword.Text;
-            string role  =  AuthenticationDAO.myAuthenticateUser(username, password);
-            if (role == "Invalid credentials") {
-                MessageBox.Show("Username or password is not correct", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
+            Form f = new FormMain();
+            if (txtUserName.Text == "admin" && txtPassword.Text == "123")
+            {
+                MyDB.ConnString = MyDB.ConnAdmin;
+                this.DialogResult = DialogResult.OK;
             }
-            Form f = new FormMain(role);
-            f.Show();
-            this.Hide();
+            else
+            {
+                if (KiemTraDangNhap(txtUserName.Text, txtPassword.Text))
+                {
+                    MyDB.setConection(txtUserName.Text, txtPassword.Text);
+                    this.DialogResult = DialogResult.OK;
+                }
+                else
+                {
+                    MessageBox.Show("Sai tên đăng nhập hoặc mật khẩu", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
         }
+        private bool KiemTraDangNhap(string taiKhoan, string matKhau)
+        {
+            string query = "select count(*) from Account where Username = '" + taiKhoan + "' and Password = '" + matKhau + "' ";
+            MyDB.ConnString=MyDB.ConnAdmin;
+            SqlCommand cmd = new SqlCommand(query, MyDB.GetConnection);
+            MyDB.OpenConnection();
+            if ((int)cmd.ExecuteScalar() > 0)
+            {
+                MyDB.CloseConnection();
+                MyDB.Conn = null;
+                return true;
+            }
+            MyDB.CloseConnection();
+            return false;
+
+        }
+
     }
 }

@@ -21,15 +21,22 @@ namespace StationeryManagementSystem
 
         private void FormSanPham_Load(object sender, EventArgs e)
         {
-            dpSPBan.Value = DateTime.Today;
-            gvSP.DataSource = SanPhamDAO.findAll();
-            gvSPTrongNgay.Columns["ngayLap"].DefaultCellStyle.Format = "dd/MM/yyyy";
-            gvSPTrongNgay.DataSource = SanPhamDAO.getXemSoLuongSanPhamDaBanTrongNgay(DateTime.Now);
-            cbMaLoai.DataSource = LoaiSanPhamDAO.findAll();
-            cbMaLoai.DisplayMember = "MaLoaiSanPham";
-            cbMaLoai.ValueMember = "TenLoaiSanPham";
-            cbMaLoai.SelectedIndex = -1;
-            txtTenLoai.Enabled = false;
+            try
+            {
+                dpSPBan.Value = DateTime.Today;
+                gvSP.DataSource = SanPhamDAO.findAll();
+                gvSPTrongNgay.Columns["ngayLap"].DefaultCellStyle.Format = "dd/MM/yyyy";
+                gvSPTrongNgay.DataSource = SanPhamDAO.getXemSoLuongSanPhamDaBanTrongNgay(DateTime.Now);
+                cbMaLoai.DataSource = LoaiSanPhamDAO.findAll();
+                cbMaLoai.DisplayMember = "MaLoaiSanPham";
+                cbMaLoai.ValueMember = "TenLoaiSanPham";
+                cbMaLoai.SelectedIndex = -1;
+                txtTenLoai.Enabled = false;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Bạn không có quyền truy cập vào các tính năng" + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
 
         }
 
@@ -100,40 +107,20 @@ namespace StationeryManagementSystem
 
         private void txtSearh_TextChanged(object sender, EventArgs e)
         {
-            /*if (txtSearh.Text == "")
-            {
-                gvSP.DataSource = SanPhamDAO.findAll();
-                return;
-            }
-            string input = txtSearh.Text;
-            int maSP;
-            DataTable dt = (DataTable)gvSP.DataSource;
-            bool isNumber = int.TryParse(input, out maSP);  // Chuyển đổi chuỗi thành số (nếu có thể)
-
-            if (isNumber)
-            {
-                // Nếu input là số, sử dụng bộ lọc cho Mã SP là số và các cột khác là chuỗi
-                dt.DefaultView.RowFilter = "[Mã SP] = " + maSP +
-                                           " OR [Tên SP] LIKE '%" + input + "%' " +
-                                           " OR [Tên Loại SP] LIKE '%" + input + "%' " +
-                                           " OR [Tên NCC] LIKE '%" + input + "%'";
-            }
-            else
-            {
-                // Nếu input không phải là số, chỉ áp dụng bộ lọc cho các cột chuỗi
-                dt.DefaultView.RowFilter = "[Tên SP] LIKE '%" + input + "%' " +
-                                           " OR [Tên Loại SP] LIKE '%" + input + "%' " +
-                                           " OR [Tên NCC] LIKE '%" + input + "%'";
-            }
-
-            gvSP.DataSource = dt;*/
             gvSP.DataSource = CommonDAO.search("SanPham", txtSearh.Text);
         }
 
         private void pbSearch_Click(object sender, EventArgs e)
         {
-            gvSPTrongNgay.DataSource = SanPhamDAO.getXemSoLuongSanPhamDaBanTrongNgay(dpSPBan.Value);
-            gvSPTrongNgay.Columns["ngayLap"].DefaultCellStyle.Format = "dd/MM/yyyy";
+            try
+            {
+                gvSPTrongNgay.DataSource = SanPhamDAO.getXemSoLuongSanPhamDaBanTrongNgay(dpSPBan.Value);
+                gvSPTrongNgay.Columns["ngayLap"].DefaultCellStyle.Format = "dd/MM/yyyy";
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi tìm kiếm: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void btnSua_Click(object sender, EventArgs e)

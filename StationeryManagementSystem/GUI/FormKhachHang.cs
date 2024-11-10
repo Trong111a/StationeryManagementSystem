@@ -20,7 +20,14 @@ namespace StationeryManagementSystem.GUI
 
         private void FormKhachHang_Load(object sender, EventArgs e)
         {
-            gvKH.DataSource = KhachHangDAO.findAll();
+            try
+            {
+                gvKH.DataSource = KhachHangDAO.findAll();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Bạn không có quyền truy cập vào các tính năng" + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void LamTrongField()
@@ -34,7 +41,14 @@ namespace StationeryManagementSystem.GUI
         private void btnReLoad_Click(object sender, EventArgs e)
         {
             LamTrongField();
-            gvKH.DataSource = KhachHangDAO.findAll();
+            try
+            {
+                gvKH.DataSource = KhachHangDAO.findAll();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Bạn không có quyền truy cập vào các tính năng" + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void btnSua_Click(object sender, EventArgs e)
@@ -115,35 +129,19 @@ namespace StationeryManagementSystem.GUI
 
         private void gvKH_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            
+
         }
 
         private void txtSearch_TextChanged(object sender, EventArgs e)
         {
-            /*if (txtSearch.Text == "")
+            try
             {
-                gvKH.DataSource = KhachHangDAO.findAll();
-                return;
+                gvKH.DataSource = CommonDAO.search("KhachHang", txtSearch.Text);
             }
-            string input = txtSearch.Text;
-            int maKH;
-            DataTable dt = (DataTable)gvKH.DataSource;
-            bool isNumber = int.TryParse(input, out maKH);  // Chuyển đổi chuỗi thành số (nếu có thể)
-
-            if (isNumber)
+            catch (Exception ex)
             {
-                // Nếu input là số, sử dụng bộ lọc cho Mã SP là số và các cột khác là chuỗi
-                dt.DefaultView.RowFilter = "[Mã KH] = " + maKH +
-                                           " OR [Họ Tên] LIKE '%" + input + "%' ";
+                MessageBox.Show("Lỗi khi tìm kiếm: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            else
-            {
-                // Nếu input không phải là số, chỉ áp dụng bộ lọc cho các cột chuỗi
-                dt.DefaultView.RowFilter = "[Họ Tên] LIKE '%" + input + "%' ";
-            }
-
-            gvKH.DataSource = dt;*/
-            gvKH.DataSource = CommonDAO.search("KhachHang", txtSearch.Text);
         }
 
         private void gvKH_Click(object sender, EventArgs e)

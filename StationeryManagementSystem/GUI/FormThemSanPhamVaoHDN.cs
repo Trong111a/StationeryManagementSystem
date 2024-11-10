@@ -35,7 +35,7 @@ namespace StationeryManagementSystem.GUI
             this.NCC = NCC;
         }
 
-        
+
 
         private void cbMaSP_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -57,7 +57,14 @@ namespace StationeryManagementSystem.GUI
 
         private void txtSearh_TextChanged(object sender, EventArgs e)
         {
-            gvSP.DataSource = CommonDAO.search("SanPham", txtSearh.Text);
+            try
+            {
+                gvSP.DataSource = CommonDAO.search("SanPham", txtSearh.Text);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi tìm kiếm: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void btnHuy_Click(object sender, EventArgs e)
@@ -67,26 +74,33 @@ namespace StationeryManagementSystem.GUI
 
         private void FormThemSanPhamVaoHDN_Load(object sender, EventArgs e)
         {
-            gvSP.DataSource = SanPhamDAO.xemDanhSachSanPhamTheoNCC(NCC);
-
-            cbTenSP.DataSource = DAO.SanPhamDAO.xemDanhSachSanPhamTheoNCC(NCC);
-            cbTenSP.DisplayMember = "Tên SP";
-            cbTenSP.ValueMember = "Mã SP";
-            cbTenSP.SelectedIndex = -1;
-            cbMaSP.DataSource = DAO.SanPhamDAO.xemDanhSachSanPhamTheoNCC(NCC);
-            cbMaSP.DisplayMember = "Mã SP";
-            cbMaSP.ValueMember = "Mã SP";
-            cbMaSP.SelectedIndex = -1;
-            txtMaHD.Text = maHD.ToString();
-            isLoaded = true;
-            if (isSua)
+            try
             {
-                cbMaSP.SelectedValue = maSP;
-                cbTenSP.SelectedValue = maSP;
-                cbMaSP.Enabled = false;
-                cbTenSP.Enabled = false;
-                gvSP.Enabled = false;
+                gvSP.DataSource = SanPhamDAO.xemDanhSachSanPhamTheoNCC(NCC);
 
+                cbTenSP.DataSource = DAO.SanPhamDAO.xemDanhSachSanPhamTheoNCC(NCC);
+                cbTenSP.DisplayMember = "Tên SP";
+                cbTenSP.ValueMember = "Mã SP";
+                cbTenSP.SelectedIndex = -1;
+                cbMaSP.DataSource = DAO.SanPhamDAO.xemDanhSachSanPhamTheoNCC(NCC);
+                cbMaSP.DisplayMember = "Mã SP";
+                cbMaSP.ValueMember = "Mã SP";
+                cbMaSP.SelectedIndex = -1;
+                txtMaHD.Text = maHD.ToString();
+                isLoaded = true;
+                if (isSua)
+                {
+                    cbMaSP.SelectedValue = maSP;
+                    cbTenSP.SelectedValue = maSP;
+                    cbMaSP.Enabled = false;
+                    cbTenSP.Enabled = false;
+                    gvSP.Enabled = false;
+
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Bạn không có quyền truy cập vào các tính năng" + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

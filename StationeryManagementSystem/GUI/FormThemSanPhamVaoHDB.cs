@@ -36,7 +36,13 @@ namespace StationeryManagementSystem.GUI
 
         private void txtSearh_TextChanged(object sender, EventArgs e)
         {
+            try { 
             gvSP.DataSource = CommonDAO.search("SanPham", txtSearh.Text);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi tìm kiếm: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void btnXacNhan_Click(object sender, EventArgs e)
@@ -120,6 +126,7 @@ namespace StationeryManagementSystem.GUI
 
         private void FormThemSanPhamVaoHDB_Load(object sender, EventArgs e)
         {
+            try { 
             gvSP.DataSource = SanPhamDAO.findAll();
 
             cbTenSP.DataSource = DAO.SanPhamDAO.findAll();
@@ -140,6 +147,11 @@ namespace StationeryManagementSystem.GUI
                 cbTenSP.Enabled = false;
                 gvSP.Enabled = false;
 
+            }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Bạn không có quyền truy cập vào các tính năng" + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

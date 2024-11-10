@@ -21,32 +21,46 @@ namespace StationeryManagementSystem.GUI
 
         private void FormLichLamViec_Load(object sender, EventArgs e)
         {
-            dpStart.Value = DateTime.Today;
-            dpEnd.Value = DateTime.Today;
-            dpHienThi.Value = DateTime.Today;
-            dpCa3.Value = DateTime.Today;
-            dpNgayLuong.Value = DateTime.Today;
-            gvPhanCa.DataSource = PhanCaDAO.findAll(DateTime.Today);
-            gvPhanCa.Columns[2].DefaultCellStyle.Format = "dd/MM/yyyy";
-            cbMaNV.DataSource = NhanVienDAO.findAll();
-            cbMaNV.DisplayMember = "MaNhanVien";
-            cbMaNV.ValueMember = "MaNhanVien";
-            cbMaNV.SelectedIndex = -1;
+            try
+            {
+                dpStart.Value = DateTime.Today;
+                dpEnd.Value = DateTime.Today;
+                dpHienThi.Value = DateTime.Today;
+                dpCa3.Value = DateTime.Today;
+                dpNgayLuong.Value = DateTime.Today;
+                gvPhanCa.DataSource = PhanCaDAO.findAll(DateTime.Today);
+                gvPhanCa.Columns[2].DefaultCellStyle.Format = "dd/MM/yyyy";
+                cbMaNV.DataSource = NhanVienDAO.findAll();
+                cbMaNV.DisplayMember = "MaNhanVien";
+                cbMaNV.ValueMember = "MaNhanVien";
+                cbMaNV.SelectedIndex = -1;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Bạn không có quyền truy cập vào các tính năng" + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
 
         private void btnPhanCa_Click(object sender, EventArgs e)
         {
-            DateTime start = dpStart.Value;
-            DateTime end = dpEnd.Value;
             try
             {
-                PhanCaDAO.phanCa(start, end);
-                MessageBox.Show("Phân ca thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                DateTime start = dpStart.Value;
+                DateTime end = dpEnd.Value;
+                try
+                {
+                    PhanCaDAO.phanCa(start, end);
+                    MessageBox.Show("Phân ca thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Bạn không có quyền truy cập vào các tính năng" + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
         }
@@ -85,21 +99,42 @@ namespace StationeryManagementSystem.GUI
                 MessageBox.Show(ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-  
-       
+
+
         private void btnHienThi_Click(object sender, EventArgs e)
         {
-            gvPhanCa.DataSource = PhanCaDAO.findAll(dpHienThi.Value);
+            try
+            {
+                gvPhanCa.DataSource = PhanCaDAO.findAll(dpHienThi.Value);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Bạn không có quyền truy cập vào các tính năng" + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void btnReload_Click(object sender, EventArgs e)
         {
-            gvPhanCa.DataSource = PhanCaDAO.findAll(dpHienThi.Value);
+            try
+            {
+                gvPhanCa.DataSource = PhanCaDAO.findAll(dpHienThi.Value);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Bạn không có quyền truy cập vào các tính năng" + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void pbSearchLuong_Click(object sender, EventArgs e)
         {
-            gvLuong.DataSource = LuongDAO.LuongTrongNgay(dpNgayLuong.Value);
+            try
+            {
+                gvLuong.DataSource = LuongDAO.LuongTrongNgay(dpNgayLuong.Value);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Bạn không có quyền truy cập vào các tính năng" + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void pbSearchLuong_MouseEnter(object sender, EventArgs e)

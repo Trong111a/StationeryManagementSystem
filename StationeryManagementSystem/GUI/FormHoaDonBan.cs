@@ -21,24 +21,31 @@ namespace StationeryManagementSystem
 
         private void FormHoaDonBan_Load(object sender, EventArgs e)
         {
-            dpNgayThanhToan.Value = DateTime.Today;
-            dpStart.Value = DateTime.Today;
-            dpEnd.Value = DateTime.Today;
-            gvHD.Columns[1].DefaultCellStyle.Format = "dd/MM/yyyy";
-            gvHD.Columns[8].DefaultCellStyle.Format = "dd/MM/yyyy";
+            try
+            {
+                dpNgayThanhToan.Value = DateTime.Today;
+                dpStart.Value = DateTime.Today;
+                dpEnd.Value = DateTime.Today;
+                gvHD.Columns[1].DefaultCellStyle.Format = "dd/MM/yyyy";
+                gvHD.Columns[8].DefaultCellStyle.Format = "dd/MM/yyyy";
 
-            gvHD.DataSource = HoaDonBanDAO.findAll();
+                gvHD.DataSource = HoaDonBanDAO.findAll();
 
-            cbMaKH.DataSource = KhachHangDAO.findAll();
-            cbMaKH.DisplayMember = "Mã KH";
-            cbMaKH.ValueMember = "Mã KH";
-            cbMaKH.SelectedIndex = -1;
+                cbMaKH.DataSource = KhachHangDAO.findAll();
+                cbMaKH.DisplayMember = "Mã KH";
+                cbMaKH.ValueMember = "Mã KH";
+                cbMaKH.SelectedIndex = -1;
 
-            cbMaNV.DataSource = NhanVienDAO.findAll();
-            cbMaNV.DisplayMember = "MaNhanVien";
-            cbMaNV.ValueMember = "MaNhanVien";
-            cbMaNV.SelectedIndex = -1;
-            cbTrangThaiThanhToan.DataSource = new List<string> { "Chưa thanh toán", "Đã thanh toán" };
+                cbMaNV.DataSource = NhanVienDAO.findAll();
+                cbMaNV.DisplayMember = "MaNhanVien";
+                cbMaNV.ValueMember = "MaNhanVien";
+                cbMaNV.SelectedIndex = -1;
+                cbTrangThaiThanhToan.DataSource = new List<string> { "Chưa thanh toán", "Đã thanh toán" };
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Bạn không có quyền truy cập vào các tính năng" + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
 
@@ -55,8 +62,15 @@ namespace StationeryManagementSystem
 
         private void btnReloadSP_Click(object sender, EventArgs e)
         {
-            int maHD = int.Parse(txtMaHD.Text);
-            gvSP.DataSource = ChiTietHDBDAO.findAllByMaHD(maHD);
+            try
+            {
+                int maHD = int.Parse(txtMaHD.Text);
+                gvSP.DataSource = ChiTietHDBDAO.findAllByMaHD(maHD);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Chọn hóa đơn để xem sản phẩm", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
 
         private void btnSuaSP_Click(object sender, EventArgs e)
@@ -137,8 +151,14 @@ namespace StationeryManagementSystem
         {
             DateTime dps = dpStart.Value;
             DateTime dpe = dpEnd.Value;
-
-            gvHD.DataSource = CommonDAO.searchHoaDon(dps, dpe, false);
+            try
+            {
+                gvHD.DataSource = CommonDAO.searchHoaDon(dps, dpe, false);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi tìm kiếm: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void btnXoa_Click(object sender, EventArgs e)
@@ -206,21 +226,39 @@ namespace StationeryManagementSystem
                     lblTongTien.Visible = false;
                     txtTongTien.Visible = false;
                 }
-
+                try { 
                 gvSP.DataSource = ChiTietHDBDAO.findAllByMaHD(maHD);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Bạn không có quyền truy cập vào các tính năng" + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
 
         private void cbMaNV_SelectedIndexChanged(object sender, EventArgs e)
         {
+            try { 
             gvSP.DataSource = null;
-           
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Bạn không có quyền truy cập vào các tính năng" + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
         }
 
         private void cbMaKH_SelectedIndexChanged(object sender, EventArgs e)
         {
-            gvSP.DataSource = null;
-           
+            try
+            {
+                gvSP.DataSource = null;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Bạn không có quyền truy cập vào các tính năng" + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
         }
 
         private void gvSP_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -239,15 +277,8 @@ namespace StationeryManagementSystem
                 MessageBox.Show("Vui lòng chọn một sản phẩm để xóa.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-            
-            int maHD = int.Parse(txtMaHD.Text);
-            /*string trangThaiThanhToan = gvHD.CurrentRow.Cells["trangThaiThanhToan"].Value.ToString();
 
-            if (trangThaiThanhToan == "Đã thanh toán")
-            {
-                MessageBox.Show("Không thể xóa sản phẩm khỏi hóa đơn đã thanh toán.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }*/
+            int maHD = int.Parse(txtMaHD.Text);
 
             try
             {

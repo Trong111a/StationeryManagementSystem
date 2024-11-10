@@ -25,7 +25,14 @@ namespace StationeryManagementSystem.GUI
 
         private void FormChiTietNhapHang_Load(object sender, EventArgs e)
         {
-            gvNhapHang.DataSource = HoaDonNhapDAO.PhiNhapHangTrongThang(thang, nam);
+            try
+            {
+                gvNhapHang.DataSource = HoaDonNhapDAO.PhiNhapHangTrongThang(thang, nam);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Bạn không có quyền truy cập vào các tính năng" + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }
