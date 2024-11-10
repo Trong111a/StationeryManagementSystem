@@ -93,6 +93,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DAO\AuthenticationDAO.cs" />
     <Compile Include="DAO\ChiPhiDAO.cs" />
     <Compile Include="DAO\ChiTietHDBDAO.cs" />
     <Compile Include="DAO\ChiTietHDNDAO.cs" />
@@ -204,6 +205,12 @@
     <Compile Include="GUI\FormThemSanPhamVaoHDN.Designer.cs">
       <DependentUpon>FormThemSanPhamVaoHDN.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\FormThungRac.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\FormThungRac.Designer.cs">
+      <DependentUpon>FormThungRac.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
@@ -288,7 +295,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Properties\thoat.png" />
     <Content Include="Resources\add-document.png" />
     <Content Include="Resources\add32px.png" />
     <Content Include="Resources\backward.png" />
@@ -322,6 +328,8 @@
     <Content Include="Resources\eye16px.png" />
     <Content Include="Resources\file.png" />
     <Content Include="Resources\filedownload32px.png" />
+    <Content Include="Resources\thungrac.png" />
+    <Content Include="Resources\thungrac_trang.png" />
     <Content Include="Resources\xacnhan.png" />
     <None Include="Resources\Folder.png" />
     <Content Include="Resources\freelancer.png" />

@@ -1113,6 +1113,26 @@ namespace StationeryManagementSystem.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap thungrac {
+            get {
+                object obj = ResourceManager.GetObject("thungrac", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap thungrac_trang {
+            get {
+                object obj = ResourceManager.GetObject("thungrac_trang", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap toppng_com_lock_login_key_password_protected_safe_security_icon_login_password_343x370 {
             get {
                 object obj = ResourceManager.GetObject("toppng_com_lock_login_key_password_protected_safe_security_icon_login_password_34" +
