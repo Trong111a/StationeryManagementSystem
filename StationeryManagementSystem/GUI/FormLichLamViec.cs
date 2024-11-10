@@ -23,6 +23,11 @@ namespace StationeryManagementSystem.GUI
         {
             try
             {
+                cbMaNV.DataSource = NhanVienDAO.findAll();
+                cbMaNV.DisplayMember = "MaNhanVien";
+                cbMaNV.ValueMember = "MaNhanVien";
+                cbMaNV.SelectedIndex = -1;
+
                 dpStart.Value = DateTime.Today;
                 dpEnd.Value = DateTime.Today;
                 dpHienThi.Value = DateTime.Today;
@@ -30,10 +35,7 @@ namespace StationeryManagementSystem.GUI
                 dpNgayLuong.Value = DateTime.Today;
                 gvPhanCa.DataSource = PhanCaDAO.findAll(DateTime.Today);
                 gvPhanCa.Columns[2].DefaultCellStyle.Format = "dd/MM/yyyy";
-                cbMaNV.DataSource = NhanVienDAO.findAll();
-                cbMaNV.DisplayMember = "MaNhanVien";
-                cbMaNV.ValueMember = "MaNhanVien";
-                cbMaNV.SelectedIndex = -1;
+                
             }
             catch (Exception ex)
             {
