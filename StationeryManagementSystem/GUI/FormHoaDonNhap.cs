@@ -20,26 +20,33 @@ namespace StationeryManagementSystem.GUI
 
         private void FormHoaDonNhap_Load(object sender, EventArgs e)
         {
-            dpNgayThanhToan.Value = DateTime.Today;
-            dpStart.Value = DateTime.Today;
-            dpEnd.Value = DateTime.Today;
-            dpNgayThanhToan.Value = DateTime.Today;
-            gvHD.DataSource = HoaDonNhapDAO.findAll();
-            //style date dd/mm/yyyy col1,8
-            gvHD.Columns[1].DefaultCellStyle.Format = "dd/MM/yyyy";
-            gvHD.Columns[8].DefaultCellStyle.Format = "dd/MM/yyyy";
+            try
+            {
+                dpNgayThanhToan.Value = DateTime.Today;
+                dpStart.Value = DateTime.Today;
+                dpEnd.Value = DateTime.Today;
+                dpNgayThanhToan.Value = DateTime.Today;
+                gvHD.DataSource = HoaDonNhapDAO.findAll();
+                //style date dd/mm/yyyy col1,8
+                gvHD.Columns[1].DefaultCellStyle.Format = "dd/MM/yyyy";
+                gvHD.Columns[8].DefaultCellStyle.Format = "dd/MM/yyyy";
 
 
-            cbMaNCC.DataSource = NhaCungCapDAO.findAll();
-            cbMaNCC.DisplayMember = "Mã NCC";
-            cbMaNCC.ValueMember = "Mã NCC";
-            cbMaNCC.SelectedIndex = -1;
+                cbMaNCC.DataSource = NhaCungCapDAO.findAll();
+                cbMaNCC.DisplayMember = "Mã NCC";
+                cbMaNCC.ValueMember = "Mã NCC";
+                cbMaNCC.SelectedIndex = -1;
 
-            cbMaNV.DataSource = NhanVienDAO.findAll();
-            cbMaNV.DisplayMember = "MaNhanVien";
-            cbMaNV.ValueMember = "MaNhanVien";
-            cbMaNV.SelectedIndex = -1;
-            cbTrangThaiThanhToan.DataSource = new List<string> { "Chưa thanh toán", "Đã thanh toán" };
+                cbMaNV.DataSource = NhanVienDAO.findAll();
+                cbMaNV.DisplayMember = "MaNhanVien";
+                cbMaNV.ValueMember = "MaNhanVien";
+                cbMaNV.SelectedIndex = -1;
+                cbTrangThaiThanhToan.DataSource = new List<string> { "Chưa thanh toán", "Đã thanh toán" };
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Bạn không có toàn quyền truy cập chức năng này"+ ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void btnTaoLap_Click(object sender, EventArgs e)
