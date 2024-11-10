@@ -59,7 +59,7 @@ namespace StationeryManagementSystem
             {
                 if (KiemTraDangNhap(txtUserName.Text, txtPassword.Text))
                 {
-                    MyDB.ConnString = @"Data Source=TuoiTho\SQLEXPRESS;Initial Catalog=StationeryManagementSystem;User ID=" + txtUserName.Text + ";Password=" + txtPassword.Text + ";Connect Timeout=30;Encrypt=True;TrustServerCertificate=True";
+                    MyDB.setConection(txtUserName.Text, txtPassword.Text);
                     this.DialogResult = DialogResult.OK;
                 }
                 else
