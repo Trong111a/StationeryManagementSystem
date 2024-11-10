@@ -23,14 +23,16 @@ namespace StationeryManagementSystem
         {
             try
             {
-                dpSPBan.Value = DateTime.Today;
-                gvSP.DataSource = SanPhamDAO.findAll();
-                gvSPTrongNgay.Columns["ngayLap"].DefaultCellStyle.Format = "dd/MM/yyyy";
-                gvSPTrongNgay.DataSource = SanPhamDAO.getXemSoLuongSanPhamDaBanTrongNgay(DateTime.Now);
                 cbMaLoai.DataSource = LoaiSanPhamDAO.findAll();
                 cbMaLoai.DisplayMember = "MaLoaiSanPham";
                 cbMaLoai.ValueMember = "TenLoaiSanPham";
                 cbMaLoai.SelectedIndex = -1;
+
+                dpSPBan.Value = DateTime.Today;
+                gvSP.DataSource = SanPhamDAO.findAll();
+                gvSPTrongNgay.Columns["ngayLap"].DefaultCellStyle.Format = "dd/MM/yyyy";
+                gvSPTrongNgay.DataSource = SanPhamDAO.getXemSoLuongSanPhamDaBanTrongNgay(DateTime.Now);
+                
                 txtTenLoai.Enabled = false;
             }
             catch (Exception ex)
