@@ -1,4 +1,5 @@
 ﻿using StationeryManagementSystem.DAO;
+using StationeryManagementSystem.GUI;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -49,6 +50,11 @@ namespace StationeryManagementSystem
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
+            if (txtUserName.Text == null || txtUserName.Text == "" || txtPassword.Text == null || txtPassword.Text == "")
+            {
+                MessageBox.Show("vui lòng nhập tên người dùng và  mật khẩu", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
             Form f = new FormMain();
             if (txtUserName.Text == "admin" && txtPassword.Text == "123")
             {
@@ -85,5 +91,13 @@ namespace StationeryManagementSystem
 
         }
 
+        private void lblQuen_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            FormQuenMatKhau fquenMK = new FormQuenMatKhau();
+            fquenMK.FormClosed += (s, args) => this.Show();
+
+            fquenMK.ShowDialog();
+        }
     }
 }

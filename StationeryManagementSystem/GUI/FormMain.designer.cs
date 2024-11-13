@@ -383,7 +383,6 @@ namespace StationeryManagementSystem
             this.Name = "FormMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MainMenu";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.panelTitleBar.ResumeLayout(false);
             this.panel_logo.ResumeLayout(false);
             this.panel_menu.ResumeLayout(false);

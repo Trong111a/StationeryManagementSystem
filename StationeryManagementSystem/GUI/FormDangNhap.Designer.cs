@@ -50,6 +50,7 @@
             this.lblQuen.Size = new System.Drawing.Size(138, 23);
             this.lblQuen.TabIndex = 12;
             this.lblQuen.Text = "Quên mật khẩu";
+            this.lblQuen.Click += new System.EventHandler(this.lblQuen_Click);
             // 
             // txtPassword
             // 
