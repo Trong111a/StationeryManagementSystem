@@ -200,7 +200,7 @@ namespace StationeryManagementSystem
             {
                 panel_menu.Size = panel_menu.MaximumSize;
 
-                roundedButton_qltk.Text = "   Quản lý tài khoản";
+                //roundedButton_qltk.Text = "   Quản lý tài khoản";
                 roundedButton_qlnv.Text = "   Quản lý nhân viên";
                 roundedButton_lv.Text = "   Quản lý lịch làm việc";
                 roundedButton_qlsp.Text = "   Quản lý sản phẩm";

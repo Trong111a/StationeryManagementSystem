@@ -1,5 +1,6 @@
 ﻿using StationeryManagementSystem.DAO;
 using StationeryManagementSystem.GUI;
+using StationeryManagementSystem.Model;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -76,19 +77,26 @@ namespace StationeryManagementSystem
         }
         private bool KiemTraDangNhap(string taiKhoan, string matKhau)
         {
-            string query = "select count(*) from Account where Username = '" + taiKhoan + "' and Password = '" + matKhau + "' ";
-            MyDB.ConnString=MyDB.ConnAdmin;
+            MyDB.ConnString = MyDB.ConnAdmin;
+
+            string query = "SELECT MaNhanVien FROM ACCOUNT WHERE Username = @username AND Password = @password AND isAdmin = 0";
             SqlCommand cmd = new SqlCommand(query, MyDB.GetConnection);
+            cmd.Parameters.AddWithValue("@username", taiKhoan);
+            cmd.Parameters.AddWithValue("@password", matKhau);
+
             MyDB.OpenConnection();
-            if ((int)cmd.ExecuteScalar() > 0)
+
+            var employeeID = cmd.ExecuteScalar();
+            if (employeeID != null)
             {
+                Session.EmployeeID = employeeID.ToString(); 
                 MyDB.CloseConnection();
                 MyDB.Conn = null;
                 return true;
             }
+
             MyDB.CloseConnection();
             return false;
-
         }
 
         private void lblQuen_Click(object sender, EventArgs e)

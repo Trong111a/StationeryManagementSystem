@@ -1,4 +1,5 @@
 ﻿using StationeryManagementSystem.DAO;
+using StationeryManagementSystem.Model;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -23,11 +24,22 @@ namespace StationeryManagementSystem.GUI
         {
             try
             {
-                cbMaNV.DataSource = NhanVienDAO.findAll();
-                cbMaNV.DisplayMember = "MaNhanVien";
-                cbMaNV.ValueMember = "MaNhanVien";
-                cbMaNV.SelectedIndex = -1;
+                if (!string.IsNullOrEmpty(Session.EmployeeID))
+                {
+                    cbMaNV.DataSource = NhanVienDAO.findAll();
+                    cbMaNV.DisplayMember = "MaNhanVien";
+                    cbMaNV.ValueMember = "MaNhanVien";
 
+                    cbMaNV.SelectedValue = Session.EmployeeID;
+                    cbMaNV.Enabled = false;
+                }
+                else
+                {
+                    cbMaNV.DataSource = NhanVienDAO.findAll();
+                    cbMaNV.DisplayMember = "MaNhanVien";
+                    cbMaNV.ValueMember = "MaNhanVien";
+                    cbMaNV.SelectedIndex = -1;
+                }
                 dpStart.Value = DateTime.Today;
                 dpEnd.Value = DateTime.Today;
                 dpHienThi.Value = DateTime.Today;

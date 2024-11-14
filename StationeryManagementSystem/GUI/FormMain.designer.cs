@@ -46,7 +46,6 @@ namespace StationeryManagementSystem
             this.roundedButton_qlsp = new StationeryManagementSystem.RoundedButton();
             this.roundedButton_lv = new StationeryManagementSystem.RoundedButton();
             this.roundedButton_qlnv = new StationeryManagementSystem.RoundedButton();
-            this.roundedButton_qltk = new StationeryManagementSystem.RoundedButton();
             this.panel_childForm = new System.Windows.Forms.Panel();
             this.panelTitleBar.SuspendLayout();
             this.panel_logo.SuspendLayout();
@@ -126,7 +125,6 @@ namespace StationeryManagementSystem
             this.panel_menu.Controls.Add(this.roundedButton_qlsp);
             this.panel_menu.Controls.Add(this.roundedButton_lv);
             this.panel_menu.Controls.Add(this.roundedButton_qlnv);
-            this.panel_menu.Controls.Add(this.roundedButton_qltk);
             this.panel_menu.Controls.Add(this.panel_logo);
             this.panel_menu.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel_menu.Location = new System.Drawing.Point(0, 0);
@@ -147,7 +145,7 @@ namespace StationeryManagementSystem
             this.roundedButton_thoat.ForeColor = System.Drawing.Color.Black;
             this.roundedButton_thoat.Image = global::StationeryManagementSystem.Properties.Resources.thoat;
             this.roundedButton_thoat.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.roundedButton_thoat.Location = new System.Drawing.Point(0, 641);
+            this.roundedButton_thoat.Location = new System.Drawing.Point(0, 580);
             this.roundedButton_thoat.Margin = new System.Windows.Forms.Padding(2);
             this.roundedButton_thoat.Name = "roundedButton_thoat";
             this.roundedButton_thoat.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
@@ -169,7 +167,7 @@ namespace StationeryManagementSystem
             this.roundedButton_qldt.ForeColor = System.Drawing.Color.Black;
             this.roundedButton_qldt.Image = global::StationeryManagementSystem.Properties.Resources.doanhthu;
             this.roundedButton_qldt.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.roundedButton_qldt.Location = new System.Drawing.Point(0, 580);
+            this.roundedButton_qldt.Location = new System.Drawing.Point(0, 519);
             this.roundedButton_qldt.Margin = new System.Windows.Forms.Padding(2);
             this.roundedButton_qldt.Name = "roundedButton_qldt";
             this.roundedButton_qldt.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
@@ -191,7 +189,7 @@ namespace StationeryManagementSystem
             this.roundedButton_qlkh.ForeColor = System.Drawing.Color.Black;
             this.roundedButton_qlkh.Image = global::StationeryManagementSystem.Properties.Resources.khachhangden;
             this.roundedButton_qlkh.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.roundedButton_qlkh.Location = new System.Drawing.Point(0, 519);
+            this.roundedButton_qlkh.Location = new System.Drawing.Point(0, 458);
             this.roundedButton_qlkh.Margin = new System.Windows.Forms.Padding(2);
             this.roundedButton_qlkh.Name = "roundedButton_qlkh";
             this.roundedButton_qlkh.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
@@ -213,7 +211,7 @@ namespace StationeryManagementSystem
             this.roundedButton_ncc.ForeColor = System.Drawing.Color.Black;
             this.roundedButton_ncc.Image = global::StationeryManagementSystem.Properties.Resources.cungcap;
             this.roundedButton_ncc.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.roundedButton_ncc.Location = new System.Drawing.Point(0, 458);
+            this.roundedButton_ncc.Location = new System.Drawing.Point(0, 397);
             this.roundedButton_ncc.Margin = new System.Windows.Forms.Padding(2);
             this.roundedButton_ncc.Name = "roundedButton_ncc";
             this.roundedButton_ncc.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
@@ -235,7 +233,7 @@ namespace StationeryManagementSystem
             this.roundedButton_hdn.ForeColor = System.Drawing.Color.Black;
             this.roundedButton_hdn.Image = global::StationeryManagementSystem.Properties.Resources.hoadonnhap;
             this.roundedButton_hdn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.roundedButton_hdn.Location = new System.Drawing.Point(0, 397);
+            this.roundedButton_hdn.Location = new System.Drawing.Point(0, 336);
             this.roundedButton_hdn.Margin = new System.Windows.Forms.Padding(2);
             this.roundedButton_hdn.Name = "roundedButton_hdn";
             this.roundedButton_hdn.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
@@ -257,7 +255,7 @@ namespace StationeryManagementSystem
             this.roundedButton_hdb.ForeColor = System.Drawing.Color.Black;
             this.roundedButton_hdb.Image = global::StationeryManagementSystem.Properties.Resources.hoadonban;
             this.roundedButton_hdb.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.roundedButton_hdb.Location = new System.Drawing.Point(0, 336);
+            this.roundedButton_hdb.Location = new System.Drawing.Point(0, 275);
             this.roundedButton_hdb.Margin = new System.Windows.Forms.Padding(2);
             this.roundedButton_hdb.Name = "roundedButton_hdb";
             this.roundedButton_hdb.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
@@ -279,7 +277,7 @@ namespace StationeryManagementSystem
             this.roundedButton_qlsp.ForeColor = System.Drawing.Color.Black;
             this.roundedButton_qlsp.Image = global::StationeryManagementSystem.Properties.Resources.sanpham_den;
             this.roundedButton_qlsp.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.roundedButton_qlsp.Location = new System.Drawing.Point(0, 275);
+            this.roundedButton_qlsp.Location = new System.Drawing.Point(0, 214);
             this.roundedButton_qlsp.Margin = new System.Windows.Forms.Padding(2);
             this.roundedButton_qlsp.Name = "roundedButton_qlsp";
             this.roundedButton_qlsp.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
@@ -301,7 +299,7 @@ namespace StationeryManagementSystem
             this.roundedButton_lv.ForeColor = System.Drawing.Color.Black;
             this.roundedButton_lv.Image = global::StationeryManagementSystem.Properties.Resources.lichlv;
             this.roundedButton_lv.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.roundedButton_lv.Location = new System.Drawing.Point(0, 214);
+            this.roundedButton_lv.Location = new System.Drawing.Point(0, 153);
             this.roundedButton_lv.Margin = new System.Windows.Forms.Padding(2);
             this.roundedButton_lv.Name = "roundedButton_lv";
             this.roundedButton_lv.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
@@ -323,7 +321,7 @@ namespace StationeryManagementSystem
             this.roundedButton_qlnv.ForeColor = System.Drawing.Color.Black;
             this.roundedButton_qlnv.Image = global::StationeryManagementSystem.Properties.Resources.employeeden;
             this.roundedButton_qlnv.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.roundedButton_qlnv.Location = new System.Drawing.Point(0, 153);
+            this.roundedButton_qlnv.Location = new System.Drawing.Point(0, 92);
             this.roundedButton_qlnv.Margin = new System.Windows.Forms.Padding(2);
             this.roundedButton_qlnv.Name = "roundedButton_qlnv";
             this.roundedButton_qlnv.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
@@ -334,28 +332,6 @@ namespace StationeryManagementSystem
             this.roundedButton_qlnv.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.roundedButton_qlnv.UseVisualStyleBackColor = true;
             this.roundedButton_qlnv.Click += new System.EventHandler(this.roundedButton_qlnv_Click);
-            // 
-            // roundedButton_qltk
-            // 
-            this.roundedButton_qltk.BackColor = System.Drawing.Color.White;
-            this.roundedButton_qltk.Dock = System.Windows.Forms.DockStyle.Top;
-            this.roundedButton_qltk.FlatAppearance.BorderSize = 0;
-            this.roundedButton_qltk.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.roundedButton_qltk.Font = new System.Drawing.Font("Verdana", 10.2F);
-            this.roundedButton_qltk.ForeColor = System.Drawing.Color.Black;
-            this.roundedButton_qltk.Image = global::StationeryManagementSystem.Properties.Resources.userden;
-            this.roundedButton_qltk.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.roundedButton_qltk.Location = new System.Drawing.Point(0, 92);
-            this.roundedButton_qltk.Margin = new System.Windows.Forms.Padding(2);
-            this.roundedButton_qltk.Name = "roundedButton_qltk";
-            this.roundedButton_qltk.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
-            this.roundedButton_qltk.Size = new System.Drawing.Size(320, 61);
-            this.roundedButton_qltk.TabIndex = 3;
-            this.roundedButton_qltk.Text = "   Quản lý tài khoản";
-            this.roundedButton_qltk.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.roundedButton_qltk.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.roundedButton_qltk.UseVisualStyleBackColor = true;
-            this.roundedButton_qltk.Click += new System.EventHandler(this.roundedButton_qltk_Click);
             // 
             // panel_childForm
             // 
@@ -418,7 +394,6 @@ namespace StationeryManagementSystem
         private RoundedButton roundedButton_lv;
         private RoundedButton roundedButton_qlnv;
         private Panel panel_logo;
-        private RoundedButton roundedButton_qltk;
         private Panel panel_menu;
         private Panel panel_childForm;
     }

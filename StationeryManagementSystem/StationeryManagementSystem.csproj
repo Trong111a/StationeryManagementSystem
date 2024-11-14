@@ -211,6 +211,7 @@
     <Compile Include="GUI\FormThemSanPhamVaoHDN.Designer.cs">
       <DependentUpon>FormThemSanPhamVaoHDN.cs</DependentUpon>
     </Compile>
+    <Compile Include="Model\Session.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">

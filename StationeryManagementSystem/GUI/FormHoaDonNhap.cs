@@ -1,4 +1,5 @@
 ﻿using StationeryManagementSystem.DAO;
+using StationeryManagementSystem.Model;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -36,11 +37,22 @@ namespace StationeryManagementSystem.GUI
                 cbMaNCC.DisplayMember = "Mã NCC";
                 cbMaNCC.ValueMember = "Mã NCC";
                 cbMaNCC.SelectedIndex = -1;
+                if (!string.IsNullOrEmpty(Session.EmployeeID))
+                {
+                    cbMaNV.DataSource = NhanVienDAO.findAll();
+                    cbMaNV.DisplayMember = "MaNhanVien";
+                    cbMaNV.ValueMember = "MaNhanVien";
 
-                cbMaNV.DataSource = NhanVienDAO.findAll();
-                cbMaNV.DisplayMember = "MaNhanVien";
-                cbMaNV.ValueMember = "MaNhanVien";
-                cbMaNV.SelectedIndex = -1;
+                    cbMaNV.SelectedValue = Session.EmployeeID;
+                    cbMaNV.Enabled = false;
+                }
+                else
+                {
+                    cbMaNV.DataSource = NhanVienDAO.findAll();
+                    cbMaNV.DisplayMember = "MaNhanVien";
+                    cbMaNV.ValueMember = "MaNhanVien";
+                    cbMaNV.SelectedIndex = -1; 
+                }
                 cbTrangThaiThanhToan.DataSource = new List<string> { "Chưa thanh toán", "Đã thanh toán" };
             }
             catch (Exception ex)
