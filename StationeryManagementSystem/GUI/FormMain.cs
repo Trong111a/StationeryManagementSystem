@@ -216,5 +216,13 @@ namespace StationeryManagementSystem
                 isCollapsed = false;
             }
         }
+
+        private void roundedButton_dudoan_Click(object sender, EventArgs e)
+        {
+            this.panel_childForm.BackgroundImage = null;
+            DudoanDoanhThu formdudoan = new DudoanDoanhThu();
+            OpenChildForm(formdudoan, sender);
+            lblTiltle.Text = "Dự đoán doanh thu";
+        }
     }
 }

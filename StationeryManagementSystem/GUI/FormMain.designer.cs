@@ -35,8 +35,9 @@ namespace StationeryManagementSystem
             this.panelTitleBar = new System.Windows.Forms.Panel();
             this.lblTiltle = new System.Windows.Forms.Label();
             this.panel_logo = new System.Windows.Forms.Panel();
-            this.roundedButton6 = new StationeryManagementSystem.RoundedButton();
             this.panel_menu = new System.Windows.Forms.Panel();
+            this.panel_childForm = new System.Windows.Forms.Panel();
+            this.roundedButton_dudoan = new StationeryManagementSystem.RoundedButton();
             this.roundedButton_thoat = new StationeryManagementSystem.RoundedButton();
             this.roundedButton_qldt = new StationeryManagementSystem.RoundedButton();
             this.roundedButton_qlkh = new StationeryManagementSystem.RoundedButton();
@@ -46,7 +47,7 @@ namespace StationeryManagementSystem
             this.roundedButton_qlsp = new StationeryManagementSystem.RoundedButton();
             this.roundedButton_lv = new StationeryManagementSystem.RoundedButton();
             this.roundedButton_qlnv = new StationeryManagementSystem.RoundedButton();
-            this.panel_childForm = new System.Windows.Forms.Panel();
+            this.roundedButton6 = new StationeryManagementSystem.RoundedButton();
             this.panelTitleBar.SuspendLayout();
             this.panel_logo.SuspendLayout();
             this.panel_menu.SuspendLayout();
@@ -92,30 +93,10 @@ namespace StationeryManagementSystem
             this.panel_logo.Size = new System.Drawing.Size(320, 92);
             this.panel_logo.TabIndex = 0;
             // 
-            // roundedButton6
-            // 
-            this.roundedButton6.BackColor = System.Drawing.Color.White;
-            this.roundedButton6.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.roundedButton6.FlatAppearance.BorderSize = 0;
-            this.roundedButton6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.roundedButton6.Font = new System.Drawing.Font("Verdana", 10.2F);
-            this.roundedButton6.ForeColor = System.Drawing.Color.Black;
-            this.roundedButton6.Image = global::StationeryManagementSystem.Properties.Resources.menu;
-            this.roundedButton6.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.roundedButton6.Location = new System.Drawing.Point(0, 31);
-            this.roundedButton6.Margin = new System.Windows.Forms.Padding(2);
-            this.roundedButton6.Name = "roundedButton6";
-            this.roundedButton6.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
-            this.roundedButton6.Size = new System.Drawing.Size(320, 61);
-            this.roundedButton6.TabIndex = 6;
-            this.roundedButton6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.roundedButton6.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.roundedButton6.UseVisualStyleBackColor = true;
-            this.roundedButton6.Click += new System.EventHandler(this.roundedButton6_Click);
-            // 
             // panel_menu
             // 
             this.panel_menu.BackColor = System.Drawing.Color.White;
+            this.panel_menu.Controls.Add(this.roundedButton_dudoan);
             this.panel_menu.Controls.Add(this.roundedButton_thoat);
             this.panel_menu.Controls.Add(this.roundedButton_qldt);
             this.panel_menu.Controls.Add(this.roundedButton_qlkh);
@@ -134,6 +115,41 @@ namespace StationeryManagementSystem
             this.panel_menu.Name = "panel_menu";
             this.panel_menu.Size = new System.Drawing.Size(320, 879);
             this.panel_menu.TabIndex = 3;
+            // 
+            // panel_childForm
+            // 
+            this.panel_childForm.AutoScroll = true;
+            this.panel_childForm.AutoSize = true;
+            this.panel_childForm.BackColor = System.Drawing.Color.Transparent;
+            this.panel_childForm.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel_childForm.Font = new System.Drawing.Font("Verdana", 10.2F);
+            this.panel_childForm.Location = new System.Drawing.Point(322, 92);
+            this.panel_childForm.Margin = new System.Windows.Forms.Padding(2);
+            this.panel_childForm.Name = "panel_childForm";
+            this.panel_childForm.Size = new System.Drawing.Size(1100, 780);
+            this.panel_childForm.TabIndex = 5;
+            // 
+            // roundedButton_dudoan
+            // 
+            this.roundedButton_dudoan.BackColor = System.Drawing.Color.White;
+            this.roundedButton_dudoan.Dock = System.Windows.Forms.DockStyle.Top;
+            this.roundedButton_dudoan.FlatAppearance.BorderSize = 0;
+            this.roundedButton_dudoan.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.roundedButton_dudoan.Font = new System.Drawing.Font("Verdana", 10.2F);
+            this.roundedButton_dudoan.ForeColor = System.Drawing.Color.Black;
+            this.roundedButton_dudoan.Image = global::StationeryManagementSystem.Properties.Resources.doanhthu;
+            this.roundedButton_dudoan.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.roundedButton_dudoan.Location = new System.Drawing.Point(0, 641);
+            this.roundedButton_dudoan.Margin = new System.Windows.Forms.Padding(2);
+            this.roundedButton_dudoan.Name = "roundedButton_dudoan";
+            this.roundedButton_dudoan.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
+            this.roundedButton_dudoan.Size = new System.Drawing.Size(320, 61);
+            this.roundedButton_dudoan.TabIndex = 14;
+            this.roundedButton_dudoan.Text = "   Dự đoán doanh thu";
+            this.roundedButton_dudoan.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.roundedButton_dudoan.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.roundedButton_dudoan.UseVisualStyleBackColor = true;
+            this.roundedButton_dudoan.Click += new System.EventHandler(this.roundedButton_dudoan_Click);
             // 
             // roundedButton_thoat
             // 
@@ -333,18 +349,26 @@ namespace StationeryManagementSystem
             this.roundedButton_qlnv.UseVisualStyleBackColor = true;
             this.roundedButton_qlnv.Click += new System.EventHandler(this.roundedButton_qlnv_Click);
             // 
-            // panel_childForm
+            // roundedButton6
             // 
-            this.panel_childForm.AutoScroll = true;
-            this.panel_childForm.AutoSize = true;
-            this.panel_childForm.BackColor = System.Drawing.Color.Transparent;
-            this.panel_childForm.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panel_childForm.Font = new System.Drawing.Font("Verdana", 10.2F);
-            this.panel_childForm.Location = new System.Drawing.Point(322, 92);
-            this.panel_childForm.Margin = new System.Windows.Forms.Padding(2);
-            this.panel_childForm.Name = "panel_childForm";
-            this.panel_childForm.Size = new System.Drawing.Size(1100, 780);
-            this.panel_childForm.TabIndex = 5;
+            this.roundedButton6.BackColor = System.Drawing.Color.White;
+            this.roundedButton6.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.roundedButton6.FlatAppearance.BorderSize = 0;
+            this.roundedButton6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.roundedButton6.Font = new System.Drawing.Font("Verdana", 10.2F);
+            this.roundedButton6.ForeColor = System.Drawing.Color.Black;
+            this.roundedButton6.Image = global::StationeryManagementSystem.Properties.Resources.menu;
+            this.roundedButton6.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.roundedButton6.Location = new System.Drawing.Point(0, 31);
+            this.roundedButton6.Margin = new System.Windows.Forms.Padding(2);
+            this.roundedButton6.Name = "roundedButton6";
+            this.roundedButton6.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
+            this.roundedButton6.Size = new System.Drawing.Size(320, 61);
+            this.roundedButton6.TabIndex = 6;
+            this.roundedButton6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.roundedButton6.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.roundedButton6.UseVisualStyleBackColor = true;
+            this.roundedButton6.Click += new System.EventHandler(this.roundedButton6_Click);
             // 
             // FormMain
             // 
@@ -396,5 +420,6 @@ namespace StationeryManagementSystem
         private Panel panel_logo;
         private Panel panel_menu;
         private Panel panel_childForm;
+        private RoundedButton roundedButton_dudoan;
     }
 }
