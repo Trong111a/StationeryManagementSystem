@@ -25,7 +25,30 @@ namespace StationeryManagementSystem.DAO
                 return dataTable;
             }
         }
+        public bool UpdateRevenue(int year, int month, decimal newRevenue)
+        {
+            string query = "UPDATE DoanhThuThang SET Revenue = @newRevenue WHERE Year = @year AND Month = @month";
 
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                SqlCommand command = new SqlCommand(query, connection);
+                command.Parameters.AddWithValue("@newRevenue", newRevenue);
+                command.Parameters.AddWithValue("@year", year);
+                command.Parameters.AddWithValue("@month", month);
+
+                try
+                {
+                    connection.Open();
+                    int rowsAffected = command.ExecuteNonQuery();
+                    return rowsAffected > 0;
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("Error: " + ex.Message);
+                    return false;
+                }
+            }
+        }
         public List<RevenueData> ConvertToRevenueList(DataTable dataTable)
         {
             var list = new List<RevenueData>();

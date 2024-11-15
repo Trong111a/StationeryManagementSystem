@@ -325,6 +325,7 @@
             this.pnBieuDoChiPhi.Name = "pnBieuDoChiPhi";
             this.pnBieuDoChiPhi.Size = new System.Drawing.Size(483, 457);
             this.pnBieuDoChiPhi.TabIndex = 38;
+            this.pnBieuDoChiPhi.Paint += new System.Windows.Forms.PaintEventHandler(this.pnBieuDoChiPhi_Paint);
             // 
             // lblVND1
             // 

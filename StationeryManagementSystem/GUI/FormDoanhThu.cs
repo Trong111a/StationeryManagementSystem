@@ -149,5 +149,10 @@ namespace StationeryManagementSystem.GUI
         {
             LoadData();
         }
+
+        private void pnBieuDoChiPhi_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

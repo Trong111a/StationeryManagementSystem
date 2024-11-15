@@ -26,7 +26,7 @@ namespace StationeryManagementSystem.DAO
 
             var pipeline = mlContext.Transforms.Concatenate("Features", "Year", "Month")
                 .Append(mlContext.Regression.Trainers.Sdca(labelColumnName: "Revenue",
-                 maximumNumberOfIterations: 100
+                 maximumNumberOfIterations: 1000
 
         ));
 
