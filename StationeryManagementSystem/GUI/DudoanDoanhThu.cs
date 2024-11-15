@@ -46,7 +46,7 @@ namespace StationeryManagementSystem.GUI
                 var revenueList = dbHelper.ConvertToRevenueList(dataTable);
 
                 var model = modelHelper.TrainModel(revenueList);
-                var prediction = modelHelper.PredictNextMonthRevenue(model, year, month);
+                float prediction = modelHelper.PredictNextMonthRevenue(model, year, month);
 
                 lblDoanhThuDuDoan.Text = $"Doanh thu dự đoán: {prediction:N0} VNĐ";
                
