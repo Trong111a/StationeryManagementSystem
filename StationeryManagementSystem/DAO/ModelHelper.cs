@@ -45,8 +45,6 @@ namespace StationeryManagementSystem.DAO
 
        
 
-        
-
         public float PredictNextMonthRevenue(ITransformer model, int year, int month)
         {
             var predictionEngine = mlContext.Model.CreatePredictionEngine<RevenueData, RevenuePrediction>(model);

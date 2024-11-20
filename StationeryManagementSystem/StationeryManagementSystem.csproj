@@ -141,7 +141,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DAO\AuthenticationDAO.cs" />
     <Compile Include="DAO\ChiPhiDAO.cs" />
     <Compile Include="DAO\ChiTietHDBDAO.cs" />
     <Compile Include="DAO\ChiTietHDNDAO.cs" />

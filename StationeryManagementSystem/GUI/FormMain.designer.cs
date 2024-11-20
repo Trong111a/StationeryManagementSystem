@@ -132,14 +132,13 @@ namespace StationeryManagementSystem
             // roundedButton_dudoan
             // 
             this.roundedButton_dudoan.BackColor = System.Drawing.Color.White;
-            this.roundedButton_dudoan.Dock = System.Windows.Forms.DockStyle.Top;
             this.roundedButton_dudoan.FlatAppearance.BorderSize = 0;
             this.roundedButton_dudoan.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.roundedButton_dudoan.Font = new System.Drawing.Font("Verdana", 10.2F);
             this.roundedButton_dudoan.ForeColor = System.Drawing.Color.Black;
             this.roundedButton_dudoan.Image = global::StationeryManagementSystem.Properties.Resources.doanhthu;
             this.roundedButton_dudoan.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.roundedButton_dudoan.Location = new System.Drawing.Point(0, 641);
+            this.roundedButton_dudoan.Location = new System.Drawing.Point(-2, 584);
             this.roundedButton_dudoan.Margin = new System.Windows.Forms.Padding(2);
             this.roundedButton_dudoan.Name = "roundedButton_dudoan";
             this.roundedButton_dudoan.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
@@ -154,14 +153,13 @@ namespace StationeryManagementSystem
             // roundedButton_thoat
             // 
             this.roundedButton_thoat.BackColor = System.Drawing.Color.White;
-            this.roundedButton_thoat.Dock = System.Windows.Forms.DockStyle.Top;
             this.roundedButton_thoat.FlatAppearance.BorderSize = 0;
             this.roundedButton_thoat.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.roundedButton_thoat.Font = new System.Drawing.Font("Verdana", 10.2F);
             this.roundedButton_thoat.ForeColor = System.Drawing.Color.Black;
             this.roundedButton_thoat.Image = global::StationeryManagementSystem.Properties.Resources.thoat;
             this.roundedButton_thoat.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.roundedButton_thoat.Location = new System.Drawing.Point(0, 580);
+            this.roundedButton_thoat.Location = new System.Drawing.Point(2, 649);
             this.roundedButton_thoat.Margin = new System.Windows.Forms.Padding(2);
             this.roundedButton_thoat.Name = "roundedButton_thoat";
             this.roundedButton_thoat.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);

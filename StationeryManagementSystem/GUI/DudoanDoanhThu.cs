@@ -14,8 +14,9 @@ namespace StationeryManagementSystem.GUI
 {
     public partial class DudoanDoanhThu : Form
     {
-        private DatabaseHelper dbHelper = new DatabaseHelper();
+        
         private ModelHelper modelHelper = new ModelHelper();
+        private DatabaseHelper dbHelper = new DatabaseHelper();
         public DudoanDoanhThu()
         {
             InitializeComponent();
@@ -31,7 +32,15 @@ namespace StationeryManagementSystem.GUI
 
         private void DudoanDoanhThu_Load(object sender, EventArgs e)
         {
-            dtg_doanhthu.DataSource = dbHelper.GetRevenueData();
+            try
+            {
+
+                dtg_doanhthu.DataSource = dbHelper.GetRevenueData();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Bạn không có quyền truy cập vào các tính năng" + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
 
         }
         public static bool IsFutureMonthYear(int selectedMonth, int selectedYear)

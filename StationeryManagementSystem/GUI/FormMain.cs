@@ -74,9 +74,7 @@ namespace StationeryManagementSystem
         private void SetButtonImage(RoundedButton button, bool isActive)
         {
             string imagePath = "..\\..\\Resources\\";
-            if (button.Name == "roundedButton_qltk")
-                button.Image = Image.FromFile(imagePath + (isActive ? "usertrang.png" : "userden.png"));
-            else if (button.Name == "roundedButton_qlnv")
+            if (button.Name == "roundedButton_qlnv")
                 button.Image = Image.FromFile(imagePath + (isActive ? "employeetrang.png" : "employeeden.png"));
             else if (button.Name == "roundedButton_qlsp")
                 button.Image = Image.FromFile(imagePath + (isActive ? "sanpham_trang.png" : "sanpham_den.png"));
@@ -94,6 +92,8 @@ namespace StationeryManagementSystem
                 button.Image = Image.FromFile(imagePath + (isActive ? "khachhang_trang.png" : "khachhang.png"));
             else if (button.Name == "roundedButton_thoat")
                 button.Image = Image.FromFile(imagePath + (isActive ? "thoat_trang.png" : "thoat.png"));
+            else if (button.Name == "roundedButton_dudoan")
+                button.Image = Image.FromFile(imagePath + (isActive ? "doanhthu_trang.png" : "doanhthu.png"));
         }
 
 
@@ -209,6 +209,7 @@ namespace StationeryManagementSystem
                 roundedButton_ncc.Text = "   Quản lý nhà cung cấp";
                 roundedButton_qlkh.Text = "   Khách hàng";
                 roundedButton_qldt.Text = "   Thống kê";
+                roundedButton_dudoan.Text = "   Dự đoán doanh thu";
                 roundedButton_thoat.Text = "   Thoát";
 
                 panel_childForm.Location = new Point(panel_menu.Width, panel_childForm.Location.Y);

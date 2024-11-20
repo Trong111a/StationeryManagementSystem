@@ -10,45 +10,21 @@ namespace StationeryManagementSystem.DAO
 {
     public class DatabaseHelper
     {
-        private string connectionString = "Data Source=TUOITHO\\SQLEXPRESS;Initial Catalog=StationeryManagementSystem2;Integrated Security=True;";
+        
 
         public DataTable GetRevenueData()
         {
-            string query = "SELECT * FROM DoanhThuThang";
-
-            using (SqlConnection connection = new SqlConnection(connectionString))
-            using (SqlCommand command = new SqlCommand(query, connection))
-            using (SqlDataAdapter adapter = new SqlDataAdapter(command))
+            using (SqlCommand cmd = new SqlCommand("select * from DoanhThuThang", MyDB.GetConnection))
             {
-                DataTable dataTable = new DataTable();
-                adapter.Fill(dataTable);
-                return dataTable;
+                MyDB.OpenConnection();
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                MyDB.CloseConnection();
+                return dt;
             }
         }
-        public bool UpdateRevenue(int year, int month, decimal newRevenue)
-        {
-            string query = "UPDATE DoanhThuThang SET Revenue = @newRevenue WHERE Year = @year AND Month = @month";
-
-            using (SqlConnection connection = new SqlConnection(connectionString))
-            {
-                SqlCommand command = new SqlCommand(query, connection);
-                command.Parameters.AddWithValue("@newRevenue", newRevenue);
-                command.Parameters.AddWithValue("@year", year);
-                command.Parameters.AddWithValue("@month", month);
-
-                try
-                {
-                    connection.Open();
-                    int rowsAffected = command.ExecuteNonQuery();
-                    return rowsAffected > 0;
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine("Error: " + ex.Message);
-                    return false;
-                }
-            }
-        }
+        
         public List<RevenueData> ConvertToRevenueList(DataTable dataTable)
         {
             var list = new List<RevenueData>();
