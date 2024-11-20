@@ -10,7 +10,7 @@ namespace StationeryManagementSystem.DAO
 {
     public class DatabaseHelper
     {
-        private string connectionString = "Data Source=DESKTOP-09KCOMQ\\SQLEXPRESS;Initial Catalog=StationeryManagementSystem;Integrated Security=True;";
+        private string connectionString = "Data Source=TUOITHO\\SQLEXPRESS;Initial Catalog=StationeryManagementSystem2;Integrated Security=True;";
 
         public DataTable GetRevenueData()
         {

@@ -57,6 +57,20 @@ namespace StationeryManagementSystem.GUI
 
         }
 
+        internal static void baonghi(int v1, int v2, DateTime v3)
+        {
+            using (SqlCommand cmd = new SqlCommand("exec BaoNghiCa @manv, @maCa, @ngay", MyDB.GetConnection))
+            {
+                MyDB.OpenConnection();
+                cmd.CommandType = CommandType.Text;
+                cmd.Parameters.AddWithValue("@manv", SqlDbType.Int).Value = v1;
+                cmd.Parameters.AddWithValue("@maCa", SqlDbType.Int).Value = v2;
+                cmd.Parameters.AddWithValue("@ngay", SqlDbType.Date).Value = v3;
+                cmd.ExecuteNonQuery();
+                MyDB.CloseConnection();
+            }
+        }
+
         internal static void checkIn(int manv, int maca, DateTime ngay, DateTime moctime)
         {
             using (SqlCommand cmd = new SqlCommand("exec sp_CheckIn @manv, @maca, @ngay, @moctime", MyDB.GetConnection))

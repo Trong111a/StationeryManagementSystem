@@ -177,5 +177,21 @@ namespace StationeryManagementSystem.GUI
                 MessageBox.Show(ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void guna2Button1_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                int manv = int.Parse(gvPhanCa.CurrentRow.Cells[0].Value.ToString());
+                int maca = int.Parse(gvPhanCa.CurrentRow.Cells[1].Value.ToString());
+                DateTime ngay = DateTime.Parse(gvPhanCa.CurrentRow.Cells[2].Value.ToString());
+                PhanCaDAO.baonghi(manv, maca, ngay);
+                MessageBox.Show("Báo nghỉ thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Bạn không có quyền truy cập vào các tính năng" + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }
