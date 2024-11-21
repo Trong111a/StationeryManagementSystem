@@ -121,8 +121,6 @@ namespace StationeryManagementSystem.GUI
         {
             try
             {
-                DataTable dataTable= PhanCaDAO.findAll(dpHienThi.Value);
-                MessageBox.Show(dataTable.Rows.Count.ToString());
                 gvPhanCa.DataSource = PhanCaDAO.findAll(dpHienThi.Value);
             }
             catch (Exception ex)
