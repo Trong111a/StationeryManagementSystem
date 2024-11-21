@@ -142,7 +142,9 @@ namespace StationeryManagementSystem.GUI
 
         private void txtSearh_TextChanged(object sender, EventArgs e)
         {
-            gvNhaCungCap.DataSource = CommonDAO.search("NhaCungCap", txtSearh.Text);
+            //gvNhaCungCap.DataSource = CommonDAO.search("NhaCungCap", txtSearh.Text);
+            gvNhaCungCap.DataSource = CommonDAO.search("NCC", txtSearh.Text);
+
         }
     }
 }
