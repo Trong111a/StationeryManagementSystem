@@ -82,12 +82,13 @@ namespace StationeryManagementSystem.GUI
 
         private void btnCheckIn_Click(object sender, EventArgs e)
         {
-            int manv = int.Parse(gvPhanCa.CurrentRow.Cells[0].Value.ToString());
-            int maca = int.Parse(gvPhanCa.CurrentRow.Cells[1].Value.ToString());
-            DateTime ngay = DateTime.Parse(gvPhanCa.CurrentRow.Cells[2].Value.ToString());
-            DateTime moctime = dp_moctime.Value;
+            
             try
             {
+                int manv = int.Parse(gvPhanCa.CurrentRow.Cells[0].Value.ToString());
+                int maca = int.Parse(gvPhanCa.CurrentRow.Cells[1].Value.ToString());
+                DateTime ngay = DateTime.Parse(gvPhanCa.CurrentRow.Cells[2].Value.ToString());
+                DateTime moctime = dp_moctime.Value;
                 PhanCaDAO.checkIn(manv, maca, ngay, moctime);
                 MessageBox.Show("Check in thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
@@ -99,12 +100,13 @@ namespace StationeryManagementSystem.GUI
 
         private void btnCheckOut_Click(object sender, EventArgs e)
         {
-            int manv = int.Parse(gvPhanCa.CurrentRow.Cells[0].Value.ToString());
-            int maca = int.Parse(gvPhanCa.CurrentRow.Cells[1].Value.ToString());
-            DateTime ngay = DateTime.Parse(gvPhanCa.CurrentRow.Cells[2].Value.ToString());
-            DateTime moctime = dp_moctime.Value;
+            
             try
             {
+                int manv = int.Parse(gvPhanCa.CurrentRow.Cells[0].Value.ToString());
+                int maca = int.Parse(gvPhanCa.CurrentRow.Cells[1].Value.ToString());
+                DateTime ngay = DateTime.Parse(gvPhanCa.CurrentRow.Cells[2].Value.ToString());
+                DateTime moctime = dp_moctime.Value;
                 PhanCaDAO.checkout(manv, maca, ngay, moctime);
                 MessageBox.Show("Check out thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
@@ -119,6 +121,8 @@ namespace StationeryManagementSystem.GUI
         {
             try
             {
+                DataTable dataTable= PhanCaDAO.findAll(dpHienThi.Value);
+                MessageBox.Show(dataTable.Rows.Count.ToString());
                 gvPhanCa.DataSource = PhanCaDAO.findAll(dpHienThi.Value);
             }
             catch (Exception ex)

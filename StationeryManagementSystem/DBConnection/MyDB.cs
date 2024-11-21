@@ -16,7 +16,7 @@ namespace StationeryManagementSystem.DAO
         //static SqlConnection conn = new SqlConnection(@"Server=localhost,1433;Database=StationeryManagementSystem;User Id=sa;Password=123456;");
 
         //static SqlConnection conn = new SqlConnection(@"Data Source= ;Initial Catalog=QuanLyVanPhongPham;Integrated Security=True;Connect Timeout=30;Encrypt=True;TrustServerCertificate=True");
-        public static void setConection(String username, String password) => connString = @"Data Source=TuoiTho\SQLEXPRESS;Initial Catalog=StationeryManagementSystem;User Id=" + username + "; Password=" + password + ";Connect Timeout=30;Encrypt=True;TrustServerCertificate=True";
+        public static void setConection(String username, String password) => connString = @"Data Source=TuoiTho\SQLEXPRESS;Initial Catalog=StationeryManagementSystem3;User Id=" + username + "; Password=" + password + ";Connect Timeout=30;Encrypt=True;TrustServerCertificate=True";
 
         public static SqlConnection GetConnection
         {

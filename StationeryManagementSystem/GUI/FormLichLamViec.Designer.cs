@@ -28,14 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             this.gbPhanCa = new Guna.UI2.WinForms.Guna2GroupBox();
             this.lblNgay = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.dp_moctime = new System.Windows.Forms.DateTimePicker();
+            this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
             this.btnReload = new Guna.UI2.WinForms.Guna2Button();
             this.btnHienThi = new Guna.UI2.WinForms.Guna2Button();
             this.dpHienThi = new Guna.UI2.WinForms.Guna2DateTimePicker();
@@ -66,7 +67,6 @@
             this.maNhanVien = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tenNhanVien = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tongLuong = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
             this.gbPhanCa.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gvPhanCa)).BeginInit();
             this.gbCa3.SuspendLayout();
@@ -110,7 +110,7 @@
             this.lblNgay.ForeColor = System.Drawing.Color.Teal;
             this.lblNgay.Location = new System.Drawing.Point(5, 183);
             this.lblNgay.Name = "lblNgay";
-            this.lblNgay.Size = new System.Drawing.Size(71, 21);
+            this.lblNgay.Size = new System.Drawing.Size(93, 26);
             this.lblNgay.TabIndex = 81;
             this.lblNgay.Text = "Chọn ngày";
             // 
@@ -120,8 +120,29 @@
             this.dp_moctime.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dp_moctime.Location = new System.Drawing.Point(22, 618);
             this.dp_moctime.Name = "dp_moctime";
-            this.dp_moctime.Size = new System.Drawing.Size(86, 34);
+            this.dp_moctime.Size = new System.Drawing.Size(86, 40);
             this.dp_moctime.TabIndex = 74;
+            // 
+            // guna2Button1
+            // 
+            this.guna2Button1.BorderColor = System.Drawing.Color.MidnightBlue;
+            this.guna2Button1.BorderRadius = 10;
+            this.guna2Button1.BorderThickness = 2;
+            this.guna2Button1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.guna2Button1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.guna2Button1.FillColor = System.Drawing.Color.Linen;
+            this.guna2Button1.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2Button1.ForeColor = System.Drawing.Color.MidnightBlue;
+            this.guna2Button1.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.guna2Button1.ImageSize = new System.Drawing.Size(30, 30);
+            this.guna2Button1.Location = new System.Drawing.Point(241, 658);
+            this.guna2Button1.Name = "guna2Button1";
+            this.guna2Button1.Size = new System.Drawing.Size(97, 41);
+            this.guna2Button1.TabIndex = 78;
+            this.guna2Button1.Text = "Báo nghỉ";
+            this.guna2Button1.Click += new System.EventHandler(this.guna2Button1_Click);
             // 
             // btnReload
             // 
@@ -231,14 +252,14 @@
             // 
             this.gvPhanCa.BackgroundColor = System.Drawing.Color.White;
             this.gvPhanCa.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Calibri", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Teal;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.LightYellow;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.Teal;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.gvPhanCa.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Calibri", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Teal;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.LightYellow;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Teal;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.gvPhanCa.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.gvPhanCa.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gvPhanCa.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.maNV,
@@ -246,21 +267,21 @@
             this.ngay,
             this.checkIn,
             this.checkOut});
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Calibri", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.LightYellow;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.Teal;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.gvPhanCa.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Calibri", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.LightYellow;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Teal;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.gvPhanCa.DefaultCellStyle = dataGridViewCellStyle2;
             this.gvPhanCa.GridColor = System.Drawing.Color.White;
             this.gvPhanCa.Location = new System.Drawing.Point(22, 267);
             this.gvPhanCa.Name = "gvPhanCa";
             this.gvPhanCa.ReadOnly = true;
             this.gvPhanCa.RowHeadersWidth = 51;
-            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.Green;
-            this.gvPhanCa.RowsDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Green;
+            this.gvPhanCa.RowsDefaultCellStyle = dataGridViewCellStyle3;
             this.gvPhanCa.RowTemplate.Height = 24;
             this.gvPhanCa.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gvPhanCa.Size = new System.Drawing.Size(514, 317);
@@ -377,7 +398,7 @@
             this.lblPhanCa.ForeColor = System.Drawing.Color.Teal;
             this.lblPhanCa.Location = new System.Drawing.Point(3, 58);
             this.lblPhanCa.Name = "lblPhanCa";
-            this.lblPhanCa.Size = new System.Drawing.Size(75, 21);
+            this.lblPhanCa.Size = new System.Drawing.Size(95, 26);
             this.lblPhanCa.TabIndex = 60;
             this.lblPhanCa.Text = "Phân ca từ";
             // 
@@ -388,7 +409,7 @@
             this.lblDen.ForeColor = System.Drawing.Color.Teal;
             this.lblDen.Location = new System.Drawing.Point(3, 108);
             this.lblDen.Name = "lblDen";
-            this.lblDen.Size = new System.Drawing.Size(28, 21);
+            this.lblDen.Size = new System.Drawing.Size(35, 26);
             this.lblDen.TabIndex = 62;
             this.lblDen.Text = "đến";
             // 
@@ -418,7 +439,7 @@
             this.lblMaNV.ForeColor = System.Drawing.Color.Teal;
             this.lblMaNV.Location = new System.Drawing.Point(13, 135);
             this.lblMaNV.Name = "lblMaNV";
-            this.lblMaNV.Size = new System.Drawing.Size(93, 21);
+            this.lblMaNV.Size = new System.Drawing.Size(120, 26);
             this.lblMaNV.TabIndex = 80;
             this.lblMaNV.Text = "Mã nhân viên";
             // 
@@ -429,7 +450,7 @@
             this.lblChonNgay.ForeColor = System.Drawing.Color.Teal;
             this.lblChonNgay.Location = new System.Drawing.Point(13, 81);
             this.lblChonNgay.Name = "lblChonNgay";
-            this.lblChonNgay.Size = new System.Drawing.Size(71, 21);
+            this.lblChonNgay.Size = new System.Drawing.Size(93, 26);
             this.lblChonNgay.TabIndex = 79;
             this.lblChonNgay.Text = "Chọn ngày";
             // 
@@ -547,7 +568,7 @@
             this.lblNgayLuong.ForeColor = System.Drawing.Color.Teal;
             this.lblNgayLuong.Location = new System.Drawing.Point(34, 63);
             this.lblNgayLuong.Name = "lblNgayLuong";
-            this.lblNgayLuong.Size = new System.Drawing.Size(71, 21);
+            this.lblNgayLuong.Size = new System.Drawing.Size(93, 26);
             this.lblNgayLuong.TabIndex = 61;
             this.lblNgayLuong.Text = "Chọn ngày";
             // 
@@ -555,27 +576,27 @@
             // 
             this.gvLuong.BackgroundColor = System.Drawing.Color.White;
             this.gvLuong.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle9.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Calibri", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.Teal;
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.LightYellow;
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.Teal;
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.gvLuong.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Calibri", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Teal;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.LightYellow;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Teal;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.gvLuong.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.gvLuong.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gvLuong.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.maNhanVien,
             this.tenNhanVien,
             this.tongLuong});
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Calibri", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.LightYellow;
-            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.Color.Teal;
-            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.gvLuong.DefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Calibri", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.DarkGreen;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.LightYellow;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.Teal;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.gvLuong.DefaultCellStyle = dataGridViewCellStyle5;
             this.gvLuong.GridColor = System.Drawing.Color.White;
             this.gvLuong.Location = new System.Drawing.Point(17, 111);
             this.gvLuong.Name = "gvLuong";
@@ -611,27 +632,6 @@
             this.tongLuong.Name = "tongLuong";
             this.tongLuong.ReadOnly = true;
             this.tongLuong.Width = 250;
-            // 
-            // guna2Button1
-            // 
-            this.guna2Button1.BorderColor = System.Drawing.Color.MidnightBlue;
-            this.guna2Button1.BorderRadius = 10;
-            this.guna2Button1.BorderThickness = 2;
-            this.guna2Button1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2Button1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button1.FillColor = System.Drawing.Color.Linen;
-            this.guna2Button1.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2Button1.ForeColor = System.Drawing.Color.MidnightBlue;
-            this.guna2Button1.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.guna2Button1.ImageSize = new System.Drawing.Size(30, 30);
-            this.guna2Button1.Location = new System.Drawing.Point(241, 658);
-            this.guna2Button1.Name = "guna2Button1";
-            this.guna2Button1.Size = new System.Drawing.Size(97, 41);
-            this.guna2Button1.TabIndex = 78;
-            this.guna2Button1.Text = "Báo nghỉ";
-            this.guna2Button1.Click += new System.EventHandler(this.guna2Button1_Click);
             // 
             // FormLichLamViec
             // 
