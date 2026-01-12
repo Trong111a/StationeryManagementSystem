@@ -8,7 +8,7 @@ The **Stationery Management System** is designed to efficiently manage office su
 - Visualize and manage inventory, bills, and suppliers.
 - Easy-to-use WinForms interface for real-time data representation.
 - Secure and efficient DBMS integration for core functionality.
-## use machine learning 
+## Use machine learning 
 - model: stochastic dual coordinate ascent (sdca)
 - evaluate accuracy: Mean Absolute Error (MAE)
 
